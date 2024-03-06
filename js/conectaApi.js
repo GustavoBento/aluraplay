@@ -7,6 +7,22 @@ async function listaDeVideos() {
     return conexaoConvertida
 }
 
+async function criarVideos (titulo, descricao, url, imagem) {
+    const conexao = await fetch(endPointDaAPI, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            titulo: titulo,
+            descricao: `${descricao} mil visualizações.`,
+            url: url,
+            imagem: imagem
+        })
+    })
+}
+
 export const conectaApi = {
-    listaDeVideos
+    listaDeVideos,
+    criarVideos
 }
