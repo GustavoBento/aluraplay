@@ -20,7 +20,11 @@ async function criaVideo (titulo, descricao, url, imagem) {
             imagem: imagem
         })
     })
+    if(!conexao.ok) {
+        throw new Error("Não foi possivel adicionar o video.")
+    }
 }
+
 
 async function buscaVideo(termoDeBusca) {
     const conexao = await fetch(`http://localhost:3000/videos?q=${termoDeBusca}`)
