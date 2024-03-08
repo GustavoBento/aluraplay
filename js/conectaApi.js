@@ -1,4 +1,5 @@
 const endPointDaAPI = "https://gustavobento.github.io/aluraplay/db.json"
+console.log(endPointDaAPI)
 
 async function listaDeVideos() {
     const conexao = await fetch(endPointDaAPI)
