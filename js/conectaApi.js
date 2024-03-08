@@ -1,4 +1,4 @@
-const endPointDaAPI = "http://localhost:3000/videos"
+const endPointDaAPI = "https://gustavobento.github.io/aluraplay/db.json"
 
 async function listaDeVideos() {
     const conexao = await fetch(endPointDaAPI)
@@ -8,7 +8,7 @@ async function listaDeVideos() {
 }
 
 async function criaVideo (titulo, descricao, url, imagem) {
-    const conexao = await fetch(endPointDaAPI, {
+    const {conexao} = await fetch(endPointDaAPI, {
         method: "POST",
         headers: {
             "Content-type": "application/json"
@@ -27,7 +27,7 @@ async function criaVideo (titulo, descricao, url, imagem) {
 
 
 async function buscaVideo(termoDeBusca) {
-    const conexao = await fetch(`http://localhost:3000/videos?q=${termoDeBusca}`)
+    const {conexao} = await fetch(`https://gustavobento.github.io/aluraplay/db.json/videos?q=${termoDeBusca}`)
     const conexaoConvertida = await conexao.json()
 
     return conexaoConvertida
