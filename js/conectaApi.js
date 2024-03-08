@@ -3,7 +3,7 @@ const endPointDaAPI = "https://gustavobento.github.io/aluraplay/db.json"
 
 async function listaDeVideos() {
     const conexao = await fetch(endPointDaAPI)
-    const conexaoConvertida = await conexao.json()
+    const {conexaoConvertida} = await conexao.json()
 
     return conexaoConvertida
 }
@@ -29,7 +29,7 @@ async function criaVideo (titulo, descricao, url, imagem) {
 
 async function buscaVideo(termoDeBusca) {
     const conexao = await fetch(`https://gustavobento.github.io/aluraplay/db.json/videos?q=${termoDeBusca}`)
-    const conexaoConvertida = await conexao.json()
+    const {conexaoConvertida} = await conexao.json()
 
     return conexaoConvertida
 }
